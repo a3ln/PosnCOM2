@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Counting Sheep</title>
+
+    <script>
+        function validate() {
+            var name = document.getElementById('name').value;
+            var password = document.getElementById('password').value;
+            var repassword = document.getElementById('repassword').value;
+
+            var error = '';
+            var result = true;
+            var pattern = /^[a-zA-Z0-9]+$/;
+
+            if (name === ''){
+                error += "Name cannot be empty.\n";
+            }
+
+            if (password === ''){
+                error += "Password cannot be empty.\n";
+            }
+
+            if (repassword === ''){
+                error += "Please retype your password.\n";
+            }
+
+            if (password !== repassword) {
+                error += "Passwords do not match.\n";
+            }
+
+            if (error != ''){
+                alert(error);
+                result = false;
+            }
+            return result;
+        }
+        function init() {
+            var regform = document.getElementById('regform');
+            regform.onsubmit = validate;
+        }
+    </script>
+</head>
+<body>
+    <form id="regform" method="post"
+        action="https://httpbin.org/post">
+
+        <fieldset>
+            <legend>Registration Form</legend>
+
+            <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="repassword">Retype Password:</label>
+            <input type="password" id="repassword" name="repassword">
+        </div>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+
+    </script>
+</body>
+</html>

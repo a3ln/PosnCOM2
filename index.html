@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+</head>
+<body>
+    <h1>Test</h1>
+    <p>This is a test.</p>
+
+    <h1>Counting Sheep...</h1>
+    <button id="count_button">Count Sheep</button>
+    <p id="result">0</p>
+
+    <script>
+        const heading = document.createElement('h1');
+        heading.textContent = 'Hello, World!';
+        document.body.appendChild(heading);
+
+        const heading2 = document.createElement('h2');
+        heading2.textContent = 'Hello, World (ver 2)!';
+        document.body.appendChild(heading2);
+
+        const paragraph = document.createElement('p');
+        paragraph.textContent = 'This is a test paragraph.';
+        document.body.appendChild(paragraph);
+
+        const button = document.createElement('button');
+        button.textContent = 'Click me';
+        button.style.backgroundColor = 'pink';
+        button.style.padding = '5px';
+        button.style.borderRadius = '10px';
+        button.style.fontFamily = 'Times New Roman';
+        button.onclick = function() {
+            alert('Welcome to your dream!');
+            heading.textContent = 'Hello, Dream!';
+            heading.style.color = 'blue';
+        };
+        document.body.appendChild(button);
+        
+        const show_hi = document.createElement('button');
+        const text_hi = document.createElement('h1');
+        text_hi.textContent = 'Hi there!';
+        show_hi.textContent = 'Say Hi';
+        show_hi.onclick = function() {
+            document.body.appendChild(text_hi);
+        };
+        document.body.appendChild(show_hi);
+
+        const hide_hi = document.createElement('button');
+        hide_hi.textContent = 'Goodbye Hi';
+        hide_hi.onclick = function() {
+            if (text_hi.parentNode) {
+                text_hi.parentNode.removeChild(text_hi);
+            }
+        };
+        document.body.appendChild(hide_hi);
+
+        const label = document.createElement('h1');
+        label.textContent = 'Enter your name:';
+        document.body.appendChild(label);
+
+        const input = document.createElement('input');
+        input.placeholder = 'Enter your name';
+
+        const button_name = document.createElement('button');
+        button_name.textContent = 'Submit Name';
+
+        const output = document.createElement('p');
+        button_name.onclick = function() {
+            const username = input.value;
+            output.textContent = 'Welcome, ' + username + ' to your dream!';
+        };
+        document.body.appendChild(input);
+        document.body.appendChild(button_name);
+        document.body.appendChild(output);
+
+
+
+        let count = 0;
+        const button_count = document.getElementById('count_button');
+        var result = document.getElementById('result');
+        button_count.addEventListener('click', function() {
+            count++;
+            result.textContent = count;
+
+            if (count === 10) {
+                alert('You have counted 10 sheep!');
+            } else if (count === 20) {
+                alert('You have counted 20 sheep!');
+            } else if (count === 30) {
+                alert('You have counted 30 sheep!');
+            } else if (count > 40) {
+                alert('Why r u not sleepin?');
+            }
+        });
+    </script>
+</body>
+</html>
